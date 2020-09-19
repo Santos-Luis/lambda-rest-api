@@ -1,7 +1,7 @@
 {
   "name": "lambda-rest-api",
   "version": "1.0.0",
-  "description": "Backend Challenge",
+  "description": "The project consists on a nodejs lambda connected to API gateway and dynamodb, using serverless to deployment process",
   "repository": "git@github.com:Santos-Luis/lambda-rest-api.git",
   "author": "Santos-luis <luissh5@outlook.com>",
   "license": "MIT",

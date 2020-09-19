@@ -18,11 +18,11 @@
     "serverless-offline": "^6.7.0"
   },
   "scripts": {
-    "start": "node_modules/serverless/bin/serverless.js offline start",
-    "install-dynamodb-local": "node_modules/serverless/bin/serverless.js dynamodb install",
+    "start": "serverless offline start",
+    "install-dynamodb-local": "serverless dynamodb install",
     "docker-start": "NODE_ENV=dev serverless offline start --host 0.0.0.0",
     "migrations": "node -e 'require(\"./src/offline/migrations.js\").populateDB()'",
-    "test": "node_modules/jest/bin/jest.js",
-    "deploy": "node_modules/serverless/bin/serverless.js deploy"
+    "test": "jest",
+    "deploy": "serverless deploy"
   }
 }

@@ -1,0 +1,258 @@
+[
+  {
+    "maker": "Renault",
+    "model": "Megane",
+    "year": "2019",
+    "color": "red",
+    "monthly": "21000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Renault",
+    "model": "Megane",
+    "year": "2014",
+    "color": "blue",
+    "monthly": "15000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Renault",
+    "model": "Megane",
+    "year": "2017",
+    "color": "red",
+    "monthly": "20000",
+    "available_from": "2021-07-01"
+  },
+  {
+    "maker": "Renault",
+    "model": "Megane",
+    "year": "2020",
+    "color": "black",
+    "monthly": "25000",
+    "available_from": "2020-03-04"
+  },
+  {
+    "maker": "Renault",
+    "model": "Clio",
+    "year": "2019",
+    "color": "red",
+    "monthly": "11000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Renault",
+    "model": "Clio",
+    "year": "2014",
+    "color": "blue",
+    "monthly": "9000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Renault",
+    "model": "Clio",
+    "year": "2017",
+    "color": "black",
+    "monthly": "10000",
+    "available_from": "2021-07-01"
+  },
+  {
+    "maker": "Renault",
+    "model": "Clio",
+    "year": "2020",
+    "color": "black",
+    "monthly": "15000",
+    "available_from": "2020-03-04"
+  },
+  {
+    "maker": "BMW",
+    "model": "Series3",
+    "year": "2019",
+    "color": "red",
+    "monthly": "31000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "BMW",
+    "model": "Series3",
+    "year": "2014",
+    "color": "blue",
+    "monthly": "23000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "BMW",
+    "model": "Series3",
+    "year": "2017",
+    "color": "black",
+    "monthly": "30000",
+    "available_from": "2021-07-01"
+  },
+  {
+    "maker": "BMW",
+    "model": "Series3",
+    "year": "2020",
+    "color": "black",
+    "monthly": "35000",
+    "available_from": "2020-03-04"
+  },
+  {
+    "maker": "BMW",
+    "model": "X1",
+    "year": "2019",
+    "color": "red",
+    "monthly": "37000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "BMW",
+    "model": "X1",
+    "year": "2014",
+    "color": "blue",
+    "monthly": "28000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "BMW",
+    "model": "X1",
+    "year": "2017",
+    "color": "black",
+    "monthly": "35000",
+    "available_from": "2021-07-01"
+  },
+  {
+    "maker": "BMW",
+    "model": "X1",
+    "year": "2020",
+    "color": "black",
+    "monthly": "40000",
+    "available_from": "2020-03-04"
+  },
+  {
+    "maker": "Toyota",
+    "model": "Yaris",
+    "year": "2019",
+    "color": "red",
+    "monthly": "17000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "Yaris",
+    "year": "2014",
+    "color": "blue",
+    "monthly": "18000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "Yaris",
+    "year": "2017",
+    "color": "black",
+    "monthly": "15000",
+    "available_from": "2021-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "Yaris",
+    "year": "2020",
+    "color": "black",
+    "monthly": "10000",
+    "available_from": "2020-03-04"
+  },
+  {
+    "maker": "Toyota",
+    "model": "RAV4",
+    "year": "2019",
+    "color": "red",
+    "monthly": "27000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "RAV4",
+    "year": "2014",
+    "color": "blue",
+    "monthly": "28000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "RAV4",
+    "year": "2017",
+    "color": "black",
+    "monthly": "25000",
+    "available_from": "2021-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "RAV4",
+    "year": "2020",
+    "color": "black",
+    "monthly": "20000",
+    "available_from": "2020-03-04"
+  },
+  {
+    "maker": "Toyota",
+    "model": "Yaris",
+    "year": "2019",
+    "color": "red",
+    "monthly": "17000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "Yaris",
+    "year": "2014",
+    "color": "blue",
+    "monthly": "18000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "Yaris",
+    "year": "2017",
+    "color": "black",
+    "monthly": "15000",
+    "available_from": "2021-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "Yaris",
+    "year": "2020",
+    "color": "black",
+    "monthly": "10000",
+    "available_from": "2020-03-04"
+  },
+  {
+    "maker": "Toyota",
+    "model": "RAV4",
+    "year": "2019",
+    "color": "red",
+    "monthly": "27000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "RAV4",
+    "year": "2014",
+    "color": "blue",
+    "monthly": "28000",
+    "available_from": "2020-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "RAV4",
+    "year": "2017",
+    "color": "black",
+    "monthly": "25000",
+    "available_from": "2021-07-01"
+  },
+  {
+    "maker": "Toyota",
+    "model": "RAV4",
+    "year": "2020",
+    "color": "black",
+    "monthly": "20000",
+    "available_from": "2020-03-04"
+  }
+]

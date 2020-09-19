@@ -1,0 +1,28 @@
+{
+  "name": "lambda-rest-api",
+  "version": "1.0.0",
+  "description": "Backend Challenge",
+  "repository": "git@github.com:Santos-Luis/lambda-rest-api.git",
+  "author": "Santos-luis <luissh5@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.752.0",
+    "jest": "^26.4.2",
+    "jest-dynalite": "^3.0.0",
+    "serverless": "^2.0.0",
+    "serverless-dynamodb-local": "^0.2.39",
+    "serverless-offline": "^6.7.0"
+  },
+  "scripts": {
+    "start": "node_modules/serverless/bin/serverless.js offline start",
+    "install-dynamodb-local": "node_modules/serverless/bin/serverless.js dynamodb install",
+    "docker-start": "NODE_ENV=dev serverless offline start --host 0.0.0.0",
+    "migrations": "node -e 'require(\"./src/offline/migrations.js\").populateDB()'",
+    "test": "node_modules/jest/bin/jest.js",
+    "deploy": "node_modules/serverless/bin/serverless.js deploy"
+  }
+}

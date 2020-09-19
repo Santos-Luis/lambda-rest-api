@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "e3d789d4-8a67-43d3-904a-0cd19416113a",
+		"name": "Lambda-rest-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/dev/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"maker\": \"Renault\",\n\t\"model\": \"Megane\",\n\t\"year\": \"2019\",\n\t\"color\": \"red\",\n\t\"monthly\": \"10000\",\n\t\"availability\": \"2020-03-04\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"create"
+					]
+				},
+				"description": "Creates a new entity based on a body passed.\n\n[maker] must be either - BMW, Renault, Toyota\n\n[model] for BMW must be either - Series3, X1 - for Renault must be either - Clio, Megane - for Toyota mus be either - Yaris, RAV4\n\n[year] must be between 1885 and the current year\n\n[color] must be a string\n\n[monthly] the subscription price: must be higher than 100, since we are using the last 2 digits as decimal\n\n[availability] when the entity is available for booking: must be a valid date"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/dev/update/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"monthly\": \"20000\",\n\t\"year\": \"2000\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/update/fake-id-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"update",
+						"fake-id-1"
+					]
+				},
+				"description": "Updates the given entity (replace {id} by the real id) and takes any valid params that you can pass on the \"create\""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/dev/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/list?maker=Toyota&color=red",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"list"
+					],
+					"query": [
+						{
+							"key": "maker",
+							"value": "Toyota"
+						},
+						{
+							"key": "color",
+							"value": "red"
+						}
+					]
+				},
+				"description": "Fetch all the results for the valid available from, and accepts the following params:\n\n[lastItem] when the result given it's bigger then 20 items, the service returns the result and the next id, so we can start fetching the next results from there\n\n[sort] must be either: price, year, maker or availability\n\n[maker] filter the results by maker\n\n[color] filter the results by color"
+			},
+			"response": []
+		}
+	]
+}

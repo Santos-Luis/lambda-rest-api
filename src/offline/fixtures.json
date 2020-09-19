@@ -5,7 +5,7 @@
     "year": "2019",
     "color": "red",
     "monthly": "21000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Renault",
@@ -13,7 +13,7 @@
     "year": "2014",
     "color": "blue",
     "monthly": "15000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Renault",
@@ -21,7 +21,7 @@
     "year": "2017",
     "color": "red",
     "monthly": "20000",
-    "available_from": "2021-07-01"
+    "availability": "2021-07-01"
   },
   {
     "maker": "Renault",
@@ -29,7 +29,7 @@
     "year": "2020",
     "color": "black",
     "monthly": "25000",
-    "available_from": "2020-03-04"
+    "availability": "2020-03-04"
   },
   {
     "maker": "Renault",
@@ -37,7 +37,7 @@
     "year": "2019",
     "color": "red",
     "monthly": "11000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Renault",
@@ -45,7 +45,7 @@
     "year": "2014",
     "color": "blue",
     "monthly": "9000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Renault",
@@ -53,7 +53,7 @@
     "year": "2017",
     "color": "black",
     "monthly": "10000",
-    "available_from": "2021-07-01"
+    "availability": "2021-07-01"
   },
   {
     "maker": "Renault",
@@ -61,7 +61,7 @@
     "year": "2020",
     "color": "black",
     "monthly": "15000",
-    "available_from": "2020-03-04"
+    "availability": "2020-03-04"
   },
   {
     "maker": "BMW",
@@ -69,7 +69,7 @@
     "year": "2019",
     "color": "red",
     "monthly": "31000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "BMW",
@@ -77,7 +77,7 @@
     "year": "2014",
     "color": "blue",
     "monthly": "23000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "BMW",
@@ -85,7 +85,7 @@
     "year": "2017",
     "color": "black",
     "monthly": "30000",
-    "available_from": "2021-07-01"
+    "availability": "2021-07-01"
   },
   {
     "maker": "BMW",
@@ -93,7 +93,7 @@
     "year": "2020",
     "color": "black",
     "monthly": "35000",
-    "available_from": "2020-03-04"
+    "availability": "2020-03-04"
   },
   {
     "maker": "BMW",
@@ -101,7 +101,7 @@
     "year": "2019",
     "color": "red",
     "monthly": "37000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "BMW",
@@ -109,7 +109,7 @@
     "year": "2014",
     "color": "blue",
     "monthly": "28000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "BMW",
@@ -117,7 +117,7 @@
     "year": "2017",
     "color": "black",
     "monthly": "35000",
-    "available_from": "2021-07-01"
+    "availability": "2021-07-01"
   },
   {
     "maker": "BMW",
@@ -125,7 +125,7 @@
     "year": "2020",
     "color": "black",
     "monthly": "40000",
-    "available_from": "2020-03-04"
+    "availability": "2020-03-04"
   },
   {
     "maker": "Toyota",
@@ -133,7 +133,7 @@
     "year": "2019",
     "color": "red",
     "monthly": "17000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Toyota",
@@ -141,7 +141,7 @@
     "year": "2014",
     "color": "blue",
     "monthly": "18000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Toyota",
@@ -149,7 +149,7 @@
     "year": "2017",
     "color": "black",
     "monthly": "15000",
-    "available_from": "2021-07-01"
+    "availability": "2021-07-01"
   },
   {
     "maker": "Toyota",
@@ -157,7 +157,7 @@
     "year": "2020",
     "color": "black",
     "monthly": "10000",
-    "available_from": "2020-03-04"
+    "availability": "2020-03-04"
   },
   {
     "maker": "Toyota",
@@ -165,7 +165,7 @@
     "year": "2019",
     "color": "red",
     "monthly": "27000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Toyota",
@@ -173,7 +173,7 @@
     "year": "2014",
     "color": "blue",
     "monthly": "28000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Toyota",
@@ -181,7 +181,7 @@
     "year": "2017",
     "color": "black",
     "monthly": "25000",
-    "available_from": "2021-07-01"
+    "availability": "2021-07-01"
   },
   {
     "maker": "Toyota",
@@ -189,7 +189,7 @@
     "year": "2020",
     "color": "black",
     "monthly": "20000",
-    "available_from": "2020-03-04"
+    "availability": "2020-03-04"
   },
   {
     "maker": "Toyota",
@@ -197,7 +197,7 @@
     "year": "2019",
     "color": "red",
     "monthly": "17000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Toyota",
@@ -205,7 +205,7 @@
     "year": "2014",
     "color": "blue",
     "monthly": "18000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Toyota",
@@ -213,7 +213,7 @@
     "year": "2017",
     "color": "black",
     "monthly": "15000",
-    "available_from": "2021-07-01"
+    "availability": "2021-07-01"
   },
   {
     "maker": "Toyota",
@@ -221,7 +221,7 @@
     "year": "2020",
     "color": "black",
     "monthly": "10000",
-    "available_from": "2020-03-04"
+    "availability": "2020-03-04"
   },
   {
     "maker": "Toyota",
@@ -229,7 +229,7 @@
     "year": "2019",
     "color": "red",
     "monthly": "27000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Toyota",
@@ -237,7 +237,7 @@
     "year": "2014",
     "color": "blue",
     "monthly": "28000",
-    "available_from": "2020-07-01"
+    "availability": "2020-07-01"
   },
   {
     "maker": "Toyota",
@@ -245,7 +245,7 @@
     "year": "2017",
     "color": "black",
     "monthly": "25000",
-    "available_from": "2021-07-01"
+    "availability": "2021-07-01"
   },
   {
     "maker": "Toyota",
@@ -253,6 +253,6 @@
     "year": "2020",
     "color": "black",
     "monthly": "20000",
-    "available_from": "2020-03-04"
+    "availability": "2020-03-04"
   }
 ]

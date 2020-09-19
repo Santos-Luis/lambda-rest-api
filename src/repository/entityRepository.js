@@ -70,6 +70,13 @@ module.exports.getAllEntitiesFiltered = async (queryStringParameters, lastItem) 
   });
 };
 
+module.exports.addNewEntity = async entityObject => {
+  const entityItem = createEntityItem(entityObject);
+  const params = { TableName: process.env.ENTITIES_TABLE, Item: entityItem };
+
+  return dynamodb.put(params).promise().then(() => entityItem);
+};
+
 const getSortedParams = (results, sort) => {
   return results.sort((r1, r2) => r1[sort] > r2[sort] ? 1 : -1)
 };

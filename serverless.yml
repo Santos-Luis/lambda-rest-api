@@ -1,0 +1,91 @@
+service: lambda-rest-api
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-west-2
+  environment:
+    ENTITY_TABLE: ${self:provider.stage}-entities
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: '*'
+
+functions:
+  entitiesCreation:
+    handler: src/api/entitiesCreate.create
+    memorySize: 128
+    description: Creates a new entity
+    events:
+      - http:
+          path: create
+          method: post
+  listEntities:
+    handler: src/api/entitiesList.listAll
+    memorySize: 128
+    description: Lists entities based on the filters given/or not
+    events:
+      - http: 
+          path: list
+          method: get
+  updateEntities:
+    handler: src/api/entitiesUpdate.update
+    memorySize: 128
+    description: Updates a given entity
+    events:
+      - http: 
+          path: update/{id}
+          method: put
+
+resources:
+  Resources:
+    EntitiesDynamoDBTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: "id"
+            AttributeType: "S"
+        KeySchema:
+          -
+            AttributeName: "id"
+            KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.ENTITIES_TABLE}
+
+custom:
+  serverless-offline:
+    useChildProcesses: true
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: ${env:DYNAMODB_PORT, 8000}
+      host: ${env:DYNAMODB_HOST, localhost}
+      migrate: true
+      noStart: ${env:DYNAMODB_NO_START, false}
+    migration:
+      dir: src/offline/dynamodbConfig
+
+package:
+  exclude:
+    - '**'
+  include:
+    - 'src/**'
+    - 'node_modules/uuid/**'
+    - 'node_modules/bluebird/**'
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline

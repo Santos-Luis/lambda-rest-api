@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    restart: always
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+
+  api:
+    build:
+      context: .
+    depends_on:
+      - dynamodb
+    links:
+      - dynamodb
+    ports:
+      - "3000:3000"
+    restart: always
+    environment:
+      DYNAMODB_HOST: dynamodb
+      DYNAMODB_PORT: 8000
+      DYNAMODB_NO_START: 'true'

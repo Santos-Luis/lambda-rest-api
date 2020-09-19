@@ -72,7 +72,7 @@ module.exports.entityCreationValidator = entity => {
   if (!validateAvailability(availability)) {
     return {
       isValid: false,
-      error: 'Invalid available from given, you should provide a correct date format'
+      error: 'Invalid availability from given, you should provide a correct date format'
     };
   }
 

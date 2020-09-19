@@ -1,0 +1,25 @@
+name: ci-tests
+
+on: [push]
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        node: [ '12.11.x' ]
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set Node.js ${{ matrix.node }}
+      uses: actions/setup-node@master
+      with:
+        node-version: ${{ matrix.node }}
+
+    - name: npm install
+      run: npm install
+
+    - name: npm test
+      run: npm test

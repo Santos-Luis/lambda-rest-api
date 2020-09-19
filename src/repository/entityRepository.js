@@ -77,6 +77,23 @@ module.exports.addNewEntity = async entityObject => {
   return dynamodb.put(params).promise().then(() => entityItem);
 };
 
+module.exports.getEntityById = async id => {
+  const params = {
+    TableName: process.env.ENTITIES_TABLE,
+    Key: {
+      id
+    }
+  };
+
+  return dynamodb.get(params).promise().then(({ Item }) => Item);
+};
+
+module.exports.updateEntity = async entityItem => {
+  const params = { TableName: process.env.ENTITIES_TABLE, Item: entityItem };
+
+  return dynamodb.put(params).promise().then(() => entityItem);
+};
+
 const getSortedParams = (results, sort) => {
   return results.sort((r1, r2) => r1[sort] > r2[sort] ? 1 : -1)
 };
@@ -86,6 +103,28 @@ const getSortedByPrice = results => {
   return results.sort((e1, e2) => {
     return parseInt(e1.monthly) > parseInt(e2.monthly) ? 1 : -1;
   });
+};
+
+const createEntityItem = ({
+  maker,
+  model,
+  year,
+  color,
+  monthly,
+  availability
+}) => {
+  const timestamp = new Date().getTime();
+
+  return {
+    id: uuid.v1(),
+    createdAt: timestamp,
+    maker,
+    model,
+    year,
+    color,
+    monthly,
+    availability: getCorrectDateFormat(availability)
+  };
 };
 
 /**

@@ -134,7 +134,7 @@ const createEntityItem = ({
  */
 const paginate = (results, lastItem) => {
   if (results.length <= PAGE_SIZE) {
-    return { entity: results };
+    return { entities: results };
   }
 
   let lastItemIndex = 0;

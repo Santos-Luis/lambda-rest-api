@@ -1,11 +1,11 @@
-const AWS = require('aws-sdk');
-const promise = require('bluebird');
-const fs = require('fs');
-const path = require('path');
+import AWS from 'aws-sdk';
+import promise from 'bluebird';
+import fs from 'fs';
+import path from 'path';
 
 AWS.config.setPromisesDependency(promise);
 
-const populateDB = async () => {
+export default populateDB = async () => {
   const options = getOptions();
   const dynamodbTable = process.env.JEST_WORKER_ID ? 'test-entities' : 'dev-entities';
 
@@ -45,6 +45,4 @@ const getOptions = () => {
     accessKeyId: 'MOCK_ACCESS_KEY_ID',
     secretAccessKey: 'MOCK_SECRET_ACCESS_KEY',
   };
-}
-
-module.exports.populateDB = populateDB;
+};

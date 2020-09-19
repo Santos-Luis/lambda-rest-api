@@ -1,7 +1,7 @@
-const { getEntityById, updateEntity } = require('../repository/entityRepository');
-const { entityCreationValidator } = require('../validator/entityCreationValidator');
+import { getEntityById, updateEntity } from '../repository/entityRepository';
+import { entityCreationValidator } from '../validator/entityCreationValidator';
 
-module.exports.entityUpdate = async ( oldEntityId, newAttributes ) => {
+export const entityUpdate = async ( oldEntityId, newAttributes ) => {
   const {
     maker,
     model,

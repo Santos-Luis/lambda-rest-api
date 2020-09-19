@@ -1,5 +1,5 @@
-const { addNewEntity } = require('../repository/entityRepository');
-const { entityCreationValidator } = require('../validator/entityCreationValidator');
+import { addNewEntity }  from '../repository/entityRepository';
+import { entityCreationValidator }  from '../validator/entityCreationValidator';
 
 /**
  * Creates a new entity based on given parameters.
@@ -14,7 +14,7 @@ const { entityCreationValidator } = require('../validator/entityCreationValidato
  *                     are using the last 2 digits as decimal
  * @param availability when the entity is available for booking: must be a valid date
  */
-module.exports.create = (event, _, callback) => {
+export const create = (event, _, callback) => {
   const requestBody = JSON.parse(event.body);
   const { isValid, error: validationError } = entityCreationValidator(requestBody);
 

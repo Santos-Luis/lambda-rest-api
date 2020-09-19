@@ -1,5 +1,5 @@
-const { listAll } = require('./entityList');
-const { populateDB } = require('../offline/migrations');
+import { listAll }  from './entityList';
+import populateDB from '../offline/migrations';
 
 Date.now = jest.spyOn(Date, 'now').mockImplementation(() => {
   return new Date('2020-09-01');
@@ -64,11 +64,11 @@ test('it list entities filtered by maker', async () => {
   await listAll(event, {}, callback);
 
   const { entities } = JSON.parse(callback.mock.calls[0][1]['body']);
-  const carFromGivenMaker = entities.find(({ maker }) => maker === 'BMW');
-  const carFromAnotherMaker = entities.find(({ maker }) => maker === 'Toyota');
+  const entityFromGivenMaker = entities.find(({ maker }) => maker === 'BMW');
+  const entityFromAnotherMaker = entities.find(({ maker }) => maker === 'Toyota');
 
-  expect(carFromGivenMaker).toBeInstanceOf(Object);
-  expect(carFromAnotherMaker).toBeUndefined();
+  expect(entityFromGivenMaker).toBeInstanceOf(Object);
+  expect(entityFromAnotherMaker).toBeUndefined();
 });
 
 test('it list entities filtered by color', async () => {
@@ -84,11 +84,11 @@ test('it list entities filtered by color', async () => {
   await listAll(event, {}, callback);
 
   const { entities } = JSON.parse(callback.mock.calls[0][1]['body']);
-  const carFromGivenColor = entities.find(({ color }) => color === 'blue');
-  const carFromAnotherColor = entities.find(({ color }) => color === 'red');
+  const entityFromGivenColor = entities.find(({ color }) => color === 'blue');
+  const entityFromAnotherColor = entities.find(({ color }) => color === 'red');
 
-  expect(carFromGivenColor).toBeInstanceOf(Object);
-  expect(carFromAnotherColor).toBeUndefined();
+  expect(entityFromGivenColor).toBeInstanceOf(Object);
+  expect(entityFromAnotherColor).toBeUndefined();
 });
 
 test('it list entities filtered by maker and color', async () => {
@@ -105,13 +105,13 @@ test('it list entities filtered by maker and color', async () => {
   await listAll(event, {}, callback);
 
   const { entities } = JSON.parse(callback.mock.calls[0][1]['body']);
-  const carFromGivenColorAndMaker = entities.find(({ maker, color }) => { 
+  const entityFromGivenColorAndMaker = entities.find(({ maker, color }) => { 
     return maker === 'Toyota' && color === 'red';
   });
-  const carFromAnotherColorAndMaker = entities.find(({ maker, color }) => { 
+  const entityFromAnotherColorAndMaker = entities.find(({ maker, color }) => { 
     return maker === 'BMW' && color === 'blue';
   });
 
-  expect(carFromGivenColorAndMaker).toBeInstanceOf(Object);
-  expect(carFromAnotherColorAndMaker).toBeUndefined();
+  expect(entityFromGivenColorAndMaker).toBeInstanceOf(Object);
+  expect(entityFromAnotherColorAndMaker).toBeUndefined();
 });

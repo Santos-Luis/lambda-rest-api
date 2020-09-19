@@ -24,7 +24,7 @@ const validateMonthly = monthly => monthly >= 100;
 
 const validateAvailability = availability => Date.parse(availability);
 
-module.exports.entityCreationValidator = entity => {
+export const entityCreationValidator = entity => {
   const {
     maker,
     model,
@@ -72,7 +72,7 @@ module.exports.entityCreationValidator = entity => {
   if (!validateAvailability(availability)) {
     return {
       isValid: false,
-      error: 'Invalid availability from given, you should provide a correct date format'
+      error: 'Invalid availability given, you should provide a correct date format'
     };
   }
 

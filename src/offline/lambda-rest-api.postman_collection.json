@@ -112,7 +112,7 @@
 						}
 					]
 				},
-				"description": "Fetch all the results for the valid available from, and accepts the following params:\n\n[lastItem] when the result given it's bigger then 20 items, the service returns the result and the next id, so we can start fetching the next results from there\n\n[sort] must be either: price, year, maker or availability\n\n[maker] filter the results by maker\n\n[color] filter the results by color"
+				"description": "Fetch all the results for the valid availability, and accepts the following params:\n\n[lastItem] when the result given it's bigger then 20 items, the service returns the result and the next id, so we can start fetching the next results from there\n\n[sort] must be either: price, year, maker or availability\n\n[maker] filter the results by maker\n\n[color] filter the results by color"
 			},
 			"response": []
 		}

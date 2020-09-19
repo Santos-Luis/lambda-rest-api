@@ -1,4 +1,4 @@
-const { entityUpdate } = require('../updater/entityUpdater');
+import { entityUpdate } from '../updater/entityUpdater';
 
 /**
  * Updates a given entity with the body passed. The id must passed on the
@@ -13,7 +13,7 @@ const { entityUpdate } = require('../updater/entityUpdater');
  *                     are using the last 2 digits as decimal
  * @param availability when the entity is available for booking: must be a valid date
  */
-module.exports.update = async (event, _, callback) => {
+export const update = async (event, _, callback) => {
   const {
     pathParameters: {
       id: entityId

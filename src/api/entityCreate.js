@@ -4,7 +4,7 @@ const { entityCreationValidator } = require('../validator/entityCreationValidato
 /**
  * Creates a new entity based on given parameters.
  * The body must contain the following params
- * 
+ *
  * @param maker        must be either - BMW, Renault, Toyota
  * @param model        for BMW must be either - Series3, X1 - for Renault must be
  *                     either - Clio, Megane - for Toyota mus be either - Yaris, RAV4
@@ -25,7 +25,7 @@ module.exports.create = (event, _, callback) => {
         statusCode: 400,
         body: JSON.stringify({ validationError })
       }
-    )
+    );
   }
 
   return addNewEntity(requestBody).then(({ id }) => {

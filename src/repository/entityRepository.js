@@ -1,5 +1,5 @@
-const dynamodb = require('../infrastructure/dynamodb');
-const uuid = require('uuid');
+import dynamodb from '../infrastructure/dynamodb';
+import { v1 as uuid } from 'uuid';
 
 const ENTITY_ATTRIBUTES = [
   'id',
@@ -12,7 +12,7 @@ const ENTITY_ATTRIBUTES = [
 ];
 const PAGE_SIZE = 20;
 
-module.exports.getAllEntities = async (lastItem) => {
+export const getAllEntities = async (lastItem) => {
   const filterExpression = '#availability < :maxAvailability';
   const expressionAttributeNames = {
     '#yr': 'year', // * this "walkaround" is given has solution on the aws docs
@@ -32,7 +32,7 @@ module.exports.getAllEntities = async (lastItem) => {
   ));
 };
 
-module.exports.getAllEntitiesFiltered = async (queryStringParameters, lastItem) => {
+export const getAllEntitiesFiltered = async (queryStringParameters, lastItem) => {
   let filterExpression = '#availability < :maxAvailability';
   let expressionAttributeNames = {
     '#yr': 'year', // * this "walkaround" is given has solution on the aws docs
@@ -66,18 +66,18 @@ module.exports.getAllEntitiesFiltered = async (queryStringParameters, lastItem) 
       ? getSortedByPrice(Items)
       : getSortedParams(Items, sort);
 
-    return paginate(sortedItems, lastItem)
+    return paginate(sortedItems, lastItem);
   });
 };
 
-module.exports.addNewEntity = async entityObject => {
+export const addNewEntity = async entityObject => {
   const entityItem = createEntityItem(entityObject);
   const params = { TableName: process.env.ENTITIES_TABLE, Item: entityItem };
 
   return dynamodb.put(params).promise().then(() => entityItem);
 };
 
-module.exports.getEntityById = async id => {
+export const getEntityById = async id => {
   const params = {
     TableName: process.env.ENTITIES_TABLE,
     Key: {
@@ -88,14 +88,14 @@ module.exports.getEntityById = async id => {
   return dynamodb.get(params).promise().then(({ Item }) => Item);
 };
 
-module.exports.updateEntity = async entityItem => {
+export const updateEntity = async entityItem => {
   const params = { TableName: process.env.ENTITIES_TABLE, Item: entityItem };
 
   return dynamodb.put(params).promise().then(() => entityItem);
 };
 
 const getSortedParams = (results, sort) => {
-  return results.sort((r1, r2) => r1[sort] > r2[sort] ? 1 : -1)
+  return results.sort((r1, r2) => r1[sort] > r2[sort] ? 1 : -1);
 };
 
 // we can't use the previous method to price since, e.g., '20' > '100'
@@ -116,7 +116,7 @@ const createEntityItem = ({
   const timestamp = new Date().getTime();
 
   return {
-    id: uuid.v1(),
+    id: uuid(),
     createdAt: timestamp,
     maker,
     model,
@@ -152,7 +152,7 @@ const paginate = (results, lastItem) => {
   if (results.length > PAGE_SIZE && entitiesPaginated.length === PAGE_SIZE) {
     response.lastItem = results[PAGE_SIZE - 1].id;
   }
-  
+
   return response;
 };
 

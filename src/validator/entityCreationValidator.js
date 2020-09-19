@@ -16,7 +16,7 @@ const FIRST_ENTITY_YEAR = '1885';
 
 const validateYear = year => (
   year >= FIRST_ENTITY_YEAR && year <= new Date().getFullYear().toString()
-)
+);
 
 const validateColor = color => typeof(color) === 'string';
 
@@ -77,4 +77,4 @@ module.exports.entityCreationValidator = entity => {
   }
 
   return { isValid: true };
-}
+};

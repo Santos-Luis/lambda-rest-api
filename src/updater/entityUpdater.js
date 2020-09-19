@@ -10,7 +10,7 @@ module.exports.entityUpdate = async ( oldEntityId, newAttributes ) => {
     monthly,
     availability
   } = newAttributes;
-  
+
   const updatedAttributes = {
     'maker': maker,
     'model': model,
@@ -25,11 +25,7 @@ module.exports.entityUpdate = async ( oldEntityId, newAttributes ) => {
 
   Object.keys(updatedAttributes).forEach(key => {
     const value = updatedAttributes[key];
-    if (value) {
-      return newEntity[key] = value;
-    }
-    
-    return newEntity[key] = oldEntity[key];
+    newEntity[key] = value || oldEntity[key];
   });
 
   const { isValid, error: validationError } = entityCreationValidator(newEntity);

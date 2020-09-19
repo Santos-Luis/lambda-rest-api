@@ -8,7 +8,7 @@ module.exports.entityUpdate = async ( oldEntityId, newAttributes ) => {
     year,
     color,
     monthly,
-    available_from
+    availability
   } = newAttributes;
   
   const updatedAttributes = {
@@ -17,7 +17,7 @@ module.exports.entityUpdate = async ( oldEntityId, newAttributes ) => {
     'year': year,
     'color': color,
     'monthly': monthly,
-    'available_from': available_from
+    'availability': availability
   };
 
   const oldEntity = await getEntityById(oldEntityId);

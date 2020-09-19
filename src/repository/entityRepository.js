@@ -76,8 +76,8 @@ const getSortedParams = (results, sort) => {
 
 // we can't use the previous method to price since, e.g., '20' > '100'
 const getSortedByPrice = results => {
-  return results.sort((car1, car2) => {
-    return parseInt(car1.monthly) > parseInt(car2.monthly) ? 1 : -1;
+  return results.sort((e1, e2) => {
+    return parseInt(e1.monthly) > parseInt(e2.monthly) ? 1 : -1;
   });
 };
 

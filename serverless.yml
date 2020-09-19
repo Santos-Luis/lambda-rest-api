@@ -6,7 +6,7 @@ provider:
   stage: dev
   region: eu-west-2
   environment:
-    ENTITY_TABLE: ${self:provider.stage}-entities
+    ENTITIES_TABLE: ${self:provider.stage}-entities
 
   iamRoleStatements:
     - Effect: Allow
@@ -21,7 +21,7 @@ provider:
 
 functions:
   entitiesCreation:
-    handler: src/api/entitiesCreate.create
+    handler: src/api/entityCreate.create
     memorySize: 128
     description: Creates a new entity
     events:
@@ -29,7 +29,7 @@ functions:
           path: create
           method: post
   listEntities:
-    handler: src/api/entitiesList.listAll
+    handler: src/api/entityList.listAll
     memorySize: 128
     description: Lists entities based on the filters given/or not
     events:
@@ -37,7 +37,7 @@ functions:
           path: list
           method: get
   updateEntities:
-    handler: src/api/entitiesUpdate.update
+    handler: src/api/entityUpdate.update
     memorySize: 128
     description: Updates a given entity
     events:

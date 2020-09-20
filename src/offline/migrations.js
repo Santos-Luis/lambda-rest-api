@@ -5,7 +5,7 @@ import path from 'path';
 
 AWS.config.setPromisesDependency(promise);
 
-export default populateDB = async () => {
+export default async () => {
   const options = getOptions();
   const dynamodbTable = process.env.JEST_WORKER_ID ? 'test-entities' : 'dev-entities';
 
@@ -15,7 +15,7 @@ export default populateDB = async () => {
     path.join(__dirname, 'fixtures.json'),
     'utf8'
   );
-  fixtures = JSON.parse(fixturesFile);
+  const fixtures = JSON.parse(fixturesFile);
   
   let promises = [];
   fixtures.forEach((item, index) => {

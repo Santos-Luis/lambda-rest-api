@@ -1,4 +1,7 @@
 module.exports = {
   verbose: true,
-  preset: 'jest-dynalite'
+  preset: 'jest-dynalite',
+  transform: {
+    "^.+\\.jsx?$": "babel-jest"
+  }
 };

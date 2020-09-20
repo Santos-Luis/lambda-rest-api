@@ -11,6 +11,7 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
+    "@babel/node": "^7.10.5",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "aws-sdk": "^2.752.0",
@@ -26,7 +27,7 @@
     "start": "serverless offline start",
     "install-dynamodb-local": "serverless dynamodb install",
     "docker-start": "NODE_ENV=dev serverless offline start --host 0.0.0.0",
-    "migrations": "node -e 'require(\"./src/offline/migrations.js\").populateDB()'",
+    "migrations": "babel-node -e 'require(\"./src/offline/migrations.js\").populateDB()'",
     "test": "jest",
     "deploy": "serverless deploy"
   }

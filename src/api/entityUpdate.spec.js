@@ -1,6 +1,6 @@
 import { update } from './entityUpdate';
 import { getEntityById } from '../repository/entityRepository';
-import populateDB from '../offline/migrations';
+import { populateDB } from '../offline/migrations';
 
 process.env.ENTITIES_TABLE = 'test-entities';
 

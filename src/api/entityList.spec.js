@@ -1,5 +1,5 @@
 import { listAll }  from './entityList';
-import populateDB from '../offline/migrations';
+import { populateDB } from '../offline/migrations';
 
 Date.now = jest.spyOn(Date, 'now').mockImplementation(() => {
   return new Date('2020-09-01');

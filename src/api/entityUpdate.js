@@ -1,9 +1,9 @@
-const { entityUpdate } = require('../updater/entityUpdater');
+import { entityUpdate } from '../updater/entityUpdater';
 
 /**
  * Updates a given entity with the body passed. The id must passed on the
  * url /{id}, and the body must contain the attributes to update
- * 
+ *
  * @param maker        must be either - BMW, Renault, Toyota
  * @param model        for BMW must be either - Series3, X1 - for Renault must be
  *                     either - Clio, Megane - for Toyota mus be either - Yaris, RAV4
@@ -13,7 +13,7 @@ const { entityUpdate } = require('../updater/entityUpdater');
  *                     are using the last 2 digits as decimal
  * @param availability when the entity is available for booking: must be a valid date
  */
-module.exports.update = async (event, _, callback) => {
+export const update = async (event, _, callback) => {
   const {
     pathParameters: {
       id: entityId

@@ -1,5 +1,5 @@
-const AWS = require('aws-sdk');
-const promise = require('bluebird');
+import AWS from 'aws-sdk';
+import promise from 'bluebird';
 
 AWS.config.setPromisesDependency(promise);
 
@@ -24,4 +24,4 @@ if (process.env.JEST_WORKER_ID) {
   };
 }
 
-module.exports = new AWS.DynamoDB.DocumentClient(options);
+export default new AWS.DynamoDB.DocumentClient(options);

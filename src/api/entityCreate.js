@@ -1,10 +1,10 @@
-const { addNewEntity } = require('../repository/entityRepository');
-const { entityCreationValidator } = require('../validator/entityCreationValidator');
+import { addNewEntity }  from '../repository/entityRepository';
+import { entityCreationValidator }  from '../validator/entityCreationValidator';
 
 /**
  * Creates a new entity based on given parameters.
  * The body must contain the following params
- * 
+ *
  * @param maker        must be either - BMW, Renault, Toyota
  * @param model        for BMW must be either - Series3, X1 - for Renault must be
  *                     either - Clio, Megane - for Toyota mus be either - Yaris, RAV4
@@ -14,7 +14,7 @@ const { entityCreationValidator } = require('../validator/entityCreationValidato
  *                     are using the last 2 digits as decimal
  * @param availability when the entity is available for booking: must be a valid date
  */
-module.exports.create = (event, _, callback) => {
+export const create = (event, _, callback) => {
   const requestBody = JSON.parse(event.body);
   const { isValid, error: validationError } = entityCreationValidator(requestBody);
 
@@ -25,7 +25,7 @@ module.exports.create = (event, _, callback) => {
         statusCode: 400,
         body: JSON.stringify({ validationError })
       }
-    )
+    );
   }
 
   return addNewEntity(requestBody).then(({ id }) => {

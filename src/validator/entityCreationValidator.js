@@ -16,7 +16,7 @@ const FIRST_ENTITY_YEAR = '1885';
 
 const validateYear = year => (
   year >= FIRST_ENTITY_YEAR && year <= new Date().getFullYear().toString()
-)
+);
 
 const validateColor = color => typeof(color) === 'string';
 
@@ -24,7 +24,7 @@ const validateMonthly = monthly => monthly >= 100;
 
 const validateAvailability = availability => Date.parse(availability);
 
-module.exports.entityCreationValidator = entity => {
+export const entityCreationValidator = entity => {
   const {
     maker,
     model,
@@ -72,9 +72,9 @@ module.exports.entityCreationValidator = entity => {
   if (!validateAvailability(availability)) {
     return {
       isValid: false,
-      error: 'Invalid availability from given, you should provide a correct date format'
+      error: 'Invalid availability given, you should provide a correct date format'
     };
   }
 
   return { isValid: true };
-}
+};

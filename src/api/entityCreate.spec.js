@@ -1,4 +1,4 @@
-const { create } = require('./entityCreate');
+import { create } from './entityCreate';
 
 jest.mock('uuid', () => ({
   v1: jest.fn(() => 'fake-id-1')

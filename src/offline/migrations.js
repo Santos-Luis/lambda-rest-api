@@ -45,4 +45,4 @@ const getOptions = () => {
     accessKeyId: 'MOCK_ACCESS_KEY_ID',
     secretAccessKey: 'MOCK_SECRET_ACCESS_KEY',
   };
-}
+};

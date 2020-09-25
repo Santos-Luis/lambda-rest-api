@@ -1,4 +1,4 @@
-import { getAllEntities, getAllEntitiesFiltered } from '../repository/entityRepository';
+import { getEntities } from '../repository/entityRepository';
 
 /**
  * List all the item based on the filters given/or not. If no filter is passed
@@ -21,11 +21,7 @@ export const listAll = async (event, _, callback) => {
     delete queryStringParameters.lastItem;
   }
 
-  const getMethod = queryStringParameters
-    ? getAllEntitiesFiltered(queryStringParameters, lastItem)
-    : getAllEntities(lastItem);
-
-  return await getMethod.then(results => {
+  return await getEntities(queryStringParameters, lastItem).then(results => {
     callback(
       null,
       {

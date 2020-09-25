@@ -12,27 +12,7 @@ const ENTITY_ATTRIBUTES = [
 ];
 const PAGE_SIZE = 20;
 
-export const getAllEntities = async (lastItem) => {
-  const filterExpression = '#availability < :maxAvailability';
-  const expressionAttributeNames = {
-    '#yr': 'year', // * this "walkaround" is given has solution on the aws docs
-    '#availability': 'availability'
-  };
-  const expressionAttributeValues = { ':maxAvailability': getMaxAvailability() };
-  const params = {
-    TableName: process.env.ENTITIES_TABLE,
-    ProjectionExpression: ENTITY_ATTRIBUTES.join(', '),
-    FilterExpression: filterExpression,
-    ExpressionAttributeNames: expressionAttributeNames,
-    ExpressionAttributeValues: expressionAttributeValues
-  };
-
-  return dynamodb.scan(params).promise().then(({ Items }) => (
-    paginate(getSortedByPrice(Items), lastItem)
-  ));
-};
-
-export const getAllEntitiesFiltered = async (queryStringParameters, lastItem) => {
+export const getEntities = async (queryStringParameters, lastItem) => {
   let filterExpression = '#availability < :maxAvailability';
   let expressionAttributeNames = {
     '#yr': 'year', // * this "walkaround" is given has solution on the aws docs

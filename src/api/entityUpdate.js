@@ -37,7 +37,7 @@ export const update = async (event, _, callback) => {
     callback(
       null,
       {
-        statusCode: code || 400,
+        statusCode: code || 500,
         body: JSON.stringify({
           message: `Unable to update the given entity: ${message}`
         })

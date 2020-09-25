@@ -28,7 +28,7 @@ test('it creates a correct entity', async () => {
   expect(callback.mock.calls[0]).toMatchObject([
     null,
     {
-      statusCode: 200,
+      statusCode: 201,
       body: JSON.stringify({
         'message': 'Successfully created the given entity',
         'entityId':'fake-id-1'
@@ -49,7 +49,7 @@ test('it doesnt create due to incorrect maker', () => {
   expect(callback.mock.calls[0]).toMatchObject([
     null,
     {
-      statusCode: 400,
+      statusCode: 422,
       body: JSON.stringify({
         'validationError': 'Maker not recognised'
       })
@@ -69,7 +69,7 @@ test('it doesnt create due to incorrect model for maker', () => {
   expect(callback.mock.calls[0]).toMatchObject([
     null,
     {
-      statusCode: 400,
+      statusCode: 422,
       body: JSON.stringify({
         'validationError': 'Model not recognised for the given maker'
       })
@@ -89,7 +89,7 @@ test('it doesnt create due to incorrect year', () => {
   expect(callback.mock.calls[0]).toMatchObject([
     null,
     {
-      statusCode: 400,
+      statusCode: 422,
       body: JSON.stringify({
         'validationError': 'Invalid year given, it must be between 1885 and 2020'
       })

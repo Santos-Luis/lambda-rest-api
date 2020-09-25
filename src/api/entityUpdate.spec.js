@@ -60,7 +60,7 @@ test('it doesnt update the entity', async () => {
   expect(callback.mock.calls[0]).toMatchObject([
     null,
     {
-      statusCode: 500,
+      statusCode: 422,
       body: JSON.stringify({
         'message': 'Unable to update the given entity: Model not recognised for the given maker'
       })

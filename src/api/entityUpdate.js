@@ -33,12 +33,13 @@ export const update = async (event, _, callback) => {
       }
     );
   }).catch(error => {
+    const { message, code } = error;
     callback(
       null,
       {
-        statusCode: 500,
+        statusCode: code || 400,
         body: JSON.stringify({
-          message: `Unable to update the given entity: ${error}`
+          message: `Unable to update the given entity: ${message}`
         })
       }
     );

@@ -1,5 +1,6 @@
 import { getEntityById, updateEntity } from '../repository/entityRepository';
 import { entityCreationValidator } from '../validator/entityCreationValidator';
+import { validationException } from '../exceptions/validationException';
 
 export const entityUpdate = async ( oldEntityId, newAttributes ) => {
   const {
@@ -30,7 +31,7 @@ export const entityUpdate = async ( oldEntityId, newAttributes ) => {
 
   const { isValid, error: validationError } = entityCreationValidator(newEntity);
   if (!isValid) {
-    throw validationError;
+    throw validationException(validationError);
   }
 
   return updateEntity(newEntity);

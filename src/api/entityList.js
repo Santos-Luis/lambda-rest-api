@@ -1,4 +1,4 @@
-import { getAllEntities, getAllEntitiesFiltered, getEntities } from '../repository/entityRepository';
+import { getEntities } from '../repository/entityRepository';
 
 /**
  * List all the item based on the filters given/or not. If no filter is passed

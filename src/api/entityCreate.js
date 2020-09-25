@@ -22,7 +22,7 @@ export const create = (event, _, callback) => {
     return callback(
       null,
       {
-        statusCode: 400,
+        statusCode: 422,
         body: JSON.stringify({ validationError })
       }
     );
@@ -32,7 +32,7 @@ export const create = (event, _, callback) => {
     callback(
       null,
       {
-        statusCode: 200,
+        statusCode: 201,
         body: JSON.stringify({
           message: 'Successfully created the given entity',
           entityId: id

@@ -1,0 +1,175 @@
+swagger: "2.0"
+info:
+  description: "The project is intented to be present to the Drover BE challenge, and consists on a nodejs lambda connected to API gateway and dynamodb, using serverless to deployment process"
+  version: "1.0.0"
+  title: "Lambda Rest API"
+  contact:
+    email: "luissh5@outlook.com"
+  license:
+    name: "0BSD"
+    url: "https://opensource.org/licenses/0BSD"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /create:
+    post:
+      tags:
+        - "entity"
+      summary: "Creates a new entity based on given parameters"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Entity attributes"
+          required: true
+          schema:
+            required:
+              - "maker"
+              - "model"
+              - "year"
+              - "color"
+              - "monthly"
+              - "available_from"
+            $ref: "#/definitions/Entity"
+      responses:
+        "201":
+          description: "Entity successfully created"
+          schema:
+            type: "object"
+            properties:
+              entityId:
+                type: "string"
+                description: "The entity id"
+        "422":
+          description: "Invalid input"
+        "500":
+          description: "Internal server error"
+  /list:
+    get:
+      tags:
+        - "entity"
+      summary: "List all the item"
+      description: "If there's no filter passed, the results are the first 20 valid entities, available on the next three months, sorted by price"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "lastItem"
+          in: "query"
+          description: "the last item id from previous search (pagination)"
+          type: "string"
+          required: false
+        - name: "sort"
+          in: "query"
+          description: "sort the results in ascending order"
+          type: "string"
+          required: false
+          items:
+            type: "string"
+            enum:
+             - "price"
+             - "year"
+             - "maker"
+             - "availability"
+        - name: "maker"
+          in: "query"
+          description: "filter the results by maker"
+          type: "string"
+          required: false
+          enum:
+            - "BMW"
+            - "Renault"
+            - "Toyota"
+        - name: "color"
+          in: "query"
+          description: "filter the results by color"
+          type: "string"
+          required: false
+      responses:
+        "201":
+          description: "List of entities"
+          schema:
+            allOf:
+              - $ref: "#/definitions/Entity"
+              - type: "object"
+                properties: 
+                  "id":
+                    type: "string"
+                    example: "fake-id-1"
+        "500":
+          description: "Internal server error"
+  /update/{id}:
+    put:
+      tags:
+        - "entity"
+      summary: "Updates the correspondent entity, based on given parameters"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          type: "string"
+          description: "Id of the entity"
+          required: true
+        - name: "body"
+          in: "body"
+          description: "Entity attributes, any parameter that is not recognized will be ignored"
+          required: true
+          schema:
+            $ref: "#/definitions/Entity"
+      responses:
+        "201":
+          description: "Entity successfully updated"
+          schema:
+            type: "object"
+            properties:
+              entityId:
+                type: "string"
+                description: "The entity id"
+        "422":
+          description: "Invalid input"
+        "500":
+          description: "Internal server error"
+definitions:
+  Entity:
+    type: "object"
+    properties:
+      maker:
+        description: "The entity maker name"
+        type: "string"
+        enum:
+          - "BMW"
+          - "Renault"
+          - "Toyota"
+      model:
+        description: "The entity model name"
+        type: "string"
+        enum:
+          - "Series3"
+          - "X1"
+          - "Clio"
+          - "Megane"
+          - "Yaris"
+          - "RAV4"
+      year:
+        description: "The entity year: must be between between 1885 and the current year"
+        type: "string"
+        example: "2015"
+      color:
+        description: "The entity color"
+        type: "string"
+        example: "red"
+      monthly:
+        description: "The entity subscription price: must be higher than 100, since we are using the last 2 digits as decimal"
+        type: "string"
+        example: "18000"
+      available_from:
+        description: "When the entity is available for booking: must be a valid date"
+        type: "string"
+        format: "date-time"
+        example: "2020-10-10"

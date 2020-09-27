@@ -48,6 +48,35 @@ paths:
           description: "Invalid input"
         "500":
           description: "Internal server error"
+  /update/{id}:
+    put:
+      tags:
+        - "entity"
+      summary: "Updates the correspondent entity, based on given parameters"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Entity attributes, any parameter that is not recognized will be ignored"
+          required: true
+          schema:
+            $ref: "#/definitions/Entity"
+      responses:
+        "201":
+          description: "Entity successfully updated"
+          schema:
+            type: "object"
+            properties:
+              entityId:
+                type: "string"
+                description: "The entity id"
+        "422":
+          description: "Invalid input"
+        "500":
+          description: "Internal server error"
 definitions:
   Entity:
     type: "object"

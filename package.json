@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.7.2",
+    "swagger-ui-express": "^4.1.4",
     "uuid": "^8.3.0"
   },
   "devDependencies": {

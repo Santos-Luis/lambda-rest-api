@@ -48,6 +48,59 @@ paths:
           description: "Invalid input"
         "500":
           description: "Internal server error"
+  /list:
+    get:
+      tags:
+        - "entity"
+      summary: "List all the item"
+      description: "If there's no filter passed, the results are the first 20 valid entities, available on the next three months, sorted by price"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "lastItem"
+          in: "query"
+          description: "the last item id from previous search (pagination)"
+          type: "string"
+          required: false
+        - name: "sort"
+          in: "query"
+          description: "sort the results in ascending order"
+          type: "string"
+          required: false
+          items:
+            type: "string"
+            enum:
+             - "price"
+             - "year"
+             - "maker"
+             - "availability"
+        - name: "maker"
+          in: "query"
+          description: "filter the results by maker"
+          type: "string"
+          required: false
+          enum:
+            - "BMW"
+            - "Renault"
+            - "Toyota"
+        - name: "color"
+          in: "query"
+          description: "filter the results by color"
+          type: "string"
+          required: false
+      responses:
+        "201":
+          description: "List of entities"
+          schema:
+            allOf:
+              - $ref: "#/definitions/Entity"
+              - type: "object"
+                properties: 
+                  "id":
+                    type: "string"
+                    example: "fake-id-1"
+        "500":
+          description: "Internal server error"
   /update/{id}:
     put:
       tags:
@@ -58,8 +111,13 @@ paths:
       produces:
         - "application/json"
       parameters:
-        - in: "body"
-          name: "body"
+        - name: "id"
+          in: "path"
+          type: "string"
+          description: "Id of the entity"
+          required: true
+        - name: "body"
+          in: "body"
           description: "Entity attributes, any parameter that is not recognized will be ignored"
           required: true
           schema:

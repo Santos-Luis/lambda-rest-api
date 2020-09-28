@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "The project is intented to be present to the Drover BE challenge, and consists on a nodejs lambda connected to API gateway and dynamodb, using serverless to deployment process"
+  description: "The project consists on a nodejs lambda connected to API gateway and dynamodb, using serverless to deployment process"
   version: "1.0.0"
   title: "Lambda Rest API"
   contact:

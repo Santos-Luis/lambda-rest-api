@@ -38,46 +38,15 @@ The project consists on a nodejs lambda connected to API gateway and dynamodb, u
 
 
 ## Route details
-* **/create**:
-    * **HTTP Method:** 
-        * POST
-    * **Body:** 
-        * **maker**: must be either - BMW, Renault, Toyota
-        * **model**: for BMW must be either - Series3, X1 - for Renault must be either - Clio, Megane - for Toyota mus be either - Yaris, RAV4
-        * **year**: must be between 1885 and the current year
-        * **color**: must be a string
-        * **monthly**: the subscription price: must be higher than 100, since we are using the last 2 digits as decimal
-        * **availability**: when the entity is available for booking - must be a valid date
-    * **Description:** 
-        * Creates a new entity based on given parameters
-    * **Return Values:**
-        * entity id
-    
-       
-* **/update/{id}**:
-    * **HTTP Method:** 
-        * PUT
-    * **Body:** 
-        * the same as `/create` but all are optional
-        * any given parameters that's not on the list will be ignored
-    * **Description:** 
-        * Updates a entity with id `/{id}` based on given parameters
-    * **Return Values:**
-        * Entity id
-       
-        
-* **/list**:
-    * **HTTP Method:** 
-        * GET
-    * **Query Parameters** (all optional):
-        * **lastItem**: the last item **id** from last search (pagination)
-        * **sort** (always ascending): must be either: price, year, maker or availability
-        * **maker**: filter the results by maker
-        * **color**: filter the results by color
-    * **Description:** 
-        * List all the item based on the filters given/or not. If there's no filter passed, the results are the first 20 valid entities, available on the next three months, sorted by price.
-    * **Return Values:**
-        * list of entities
+![](/swagger/create-parameters.png)
+![](/swagger/create-response.png)
+![](/swagger/list-parameters.png)
+![](/swagger/list-response.png)
+![](/swagger/update-parameters.png)
+![](/swagger/update-response.png)
+
+### Models
+![](/swagger/models.png)
 
 ### Test
 * We are following the standard of writing tests in the same folder of the file itself.
